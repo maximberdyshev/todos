@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+/* .App {
+  width: 1200px;
+} */
+
+.auth-input {
+  display: flex;
+  margin-top: 150px;
+  padding: 15px;
+  border: 2px solid peru;
+  align-items: center;
+  flex-direction: column;
+}
+
+.auth-btn {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+  align-items: center;
+  justify-content: space-around;
+}
