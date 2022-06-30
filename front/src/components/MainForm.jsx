@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import AuthForm from './AuthWindow/AuthForm'
-import TodoList from './Todo/TodoList'
+import TodoContainer from './Todo/TodoContainer'
 
 export default function MainForm() {
   // имитация состояния авторизации пользователя
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(true)
 
   function authTrue() {
     setIsAuth(!isAuth)
   }
 
-  return <div>{isAuth ? <TodoList /> : <AuthForm authTrue={authTrue} />}</div>
+  return <div>{isAuth ? <TodoContainer /> : <AuthForm authTrue={authTrue} />}</div>
 }

@@ -30,3 +30,24 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.TodoContainer {
+  width: 1200px;
+}
+
+.TodoItem {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item {
+    display: flex;
+}
+
+.todo-btn {
+    display: flex;
+}
