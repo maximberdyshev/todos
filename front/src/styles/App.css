@@ -28,7 +28,7 @@
   padding: 10px;
   border: 2px solid peru;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .TodoContainer {
@@ -45,9 +45,18 @@
 }
 
 .todo-item {
-    display: flex;
+  display: flex;
 }
 
 .todo-btn {
-    display: flex;
+  display: flex;
+}
+
+.TodoInput {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+  /* align-items:stretch; */
+  /* justify-content: space-between; */
 }

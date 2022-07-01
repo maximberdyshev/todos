@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 
 export default function TodoContainer() {
@@ -19,12 +20,13 @@ export default function TodoContainer() {
 
   return (
     <div className='TodoContainer'>
+      <button onClick={chk}>CHECK</button>
+      <TodoInput />
       {todos.length === 0 ? (
         <p>TODO NOT TODO</p>
       ) : (
         <TodoList todos={todos} setTodo={setTodo} />
       )}
-      <button onClick={chk}>CHECK</button>
     </div>
   )
 }
