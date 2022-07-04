@@ -10,10 +10,11 @@ export default function TodoContainer() {
   ])
 
   async function chk() {
-    let obj = await fetch('https://jsonplaceholder.typicode.com/todos').then(
+    // let obj = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10_page=1').then(
+      let obj = await fetch('http://localhost:3001/api/getall').then(
       (response) => response.json()
     )
-    //   .then((json) => console.log(json))
+      // .then((json) => console.log(json))
     console.log(obj)
     setTodo(obj)
   }
