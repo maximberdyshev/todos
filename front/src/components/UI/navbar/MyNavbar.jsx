@@ -10,9 +10,9 @@ const MyNavbar = () => {
   return (
     <div className={styles.navbar}>
       <MyButton onClick={() => setIsAuth(!isAuth)}>LOGOUT</MyButton>
-      <div className={styles.navbar__links}>
-        <Link to='/todo'>TODOS</Link>
-        {/* <Link to='/login'> LOGIN</Link> */}
+      <div className={styles.navbar__items}>
+        <Link className={styles.navbar__links} to='/todo'>TODOS</Link>
+        <Link className={styles.navbar__links} to='/kek'>KEK</Link>
       </div>
     </div>
   )

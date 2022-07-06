@@ -5,6 +5,7 @@ import MyNavbar from './UI/navbar/MyNavbar'
 import Error from '../pages/Error'
 import Login from '../pages/Login'
 import Todos from '../pages/Todos'
+import Kekpage from '../pages/Kekpage'
 
 const MainForm = () => {
   const { isAuth } = useContext(AuthContext)
@@ -16,6 +17,7 @@ const MainForm = () => {
         <Routes>
           <Route path='/todo' element={<Todos />} />
           <Route path='/error' element={<Error />} />
+          <Route path='/kek' element={<Kekpage />} />
           <Route path='*' element={<Navigate to='/todo' />} />
         </Routes>
       </div>

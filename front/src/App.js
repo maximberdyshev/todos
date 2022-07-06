@@ -5,18 +5,23 @@ import { AuthContext } from './context/MyContext'
 import MainForm from './components/MainForm'
 
 function App() {
-  // имитация состояния авторизации пользователя
+  // состояние авторизации пользователя
   const [isAuth, setIsAuth] = useState(true)
 
   // имитация БД с логином и паролем
   // not used
-  const [isUserData, setIsUserData] = useState({
-    userLogin: 'Smit',
-    userPass: 123,
+  const [userDataDB, setUserDataBD] = useState({
+    userLogin: 'Smith',
+    userPass: '123',
+  })
+  const [userData, setUserData] = useState({
+    userLogin: '',
+    userPass: '',
   })
 
   return (
-    <AuthContext.Provider value={{ isAuth, setIsAuth, isUserData }}>
+    <AuthContext.Provider
+      value={{ isAuth, setIsAuth, userData, userDataDB, setUserData }}>
       <BrowserRouter>
         <MainForm />
       </BrowserRouter>

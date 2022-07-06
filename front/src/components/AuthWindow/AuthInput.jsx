@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../context/MyContext'
+import MyInput from '../UI/input/MyInput'
 
-export default function AuthInput(props) {
+const AuthInput = () => {
+  const { userData, setUserData } = useContext(AuthContext)
+
   return (
     <div className='AuthInput'>
       <form className='auth-input'>
-        <strong>Введите login</strong>
-        <input
+        <h2>LogIn to continue</h2>
+        <MyInput
           type='text'
-          value={props.userLogin}
-          onChange={(e) => props.setUserLogin(e.target.value)}
+          placeholder='Введите login'
+          value={userData.userLogin}
+          onChange={(event) =>
+            setUserData({ ...userData, userLogin: event.target.value })
+          }
         />
-        <strong>Введите password</strong>
-        <input
+        <MyInput
           type='password'
-          value={props.userPass}
-          onChange={(e) => props.setUserPass(e.target.value)}
+          placeholder='Введите password'
+          value={userData.userPass}
+          onChange={(event) =>
+            setUserData({ ...userData, userPass: event.target.value })
+          }
         />
       </form>
     </div>
   )
 }
+
+export default AuthInput

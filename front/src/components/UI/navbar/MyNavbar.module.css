@@ -7,8 +7,11 @@
   background: lightgray;
 }
 
-.navbar__links {
+.navbar__items {
   margin-left: auto;
+}
+
+.navbar__links {
   border: 1px solid peru;
   padding: 5px 15px;
 }

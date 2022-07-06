@@ -1,8 +1,15 @@
 import React from 'react'
-import AuthForm from '../components/AuthWindow/AuthForm'
+import AuthInput from '../components/AuthWindow/AuthInput'
+import AuthBtn from '../components/AuthWindow/AuthBtn'
 
 const Login = () => {
-  return <AuthForm />
+
+  return (
+    <div className='login'>
+      <AuthInput />
+      <AuthBtn />
+    </div>
+  )
 }
 
 export default Login
