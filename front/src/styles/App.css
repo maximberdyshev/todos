@@ -14,6 +14,12 @@
   width: 1200px;
 }
 
+.MainForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .auth-input {
   display: flex;
   margin-top: 150px;

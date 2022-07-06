@@ -1,15 +1,26 @@
 import './styles/App.css'
-import React from 'react'
-import MainForm from './components/MainForm'
+import React, { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import MyNavbar from './components/UI/navbar/MyNavbar'
+import { AuthContext } from './context/MyContext'
+import MainForm from './components/MainForm'
 
 function App() {
+  // имитация состояния авторизации пользователя
+  const [isAuth, setIsAuth] = useState(true)
+
+  // имитация БД с логином и паролем
+  // not used
+  const [isUserData, setIsUserData] = useState({
+    userLogin: 'Smit',
+    userPass: 123,
+  })
+
   return (
+    <AuthContext.Provider value={{ isAuth, setIsAuth, isUserData }}>
       <BrowserRouter>
-        <MyNavbar />
         <MainForm />
       </BrowserRouter>
+    </AuthContext.Provider>
   )
 }
 

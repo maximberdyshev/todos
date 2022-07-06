@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthInput from './AuthInput'
 import AuthBtn from './AuthBtn'
+import { AuthContext } from '../../context/MyContext'
 
-export default function AuthForm(props) {
+const AuthForm = (props) => {
   const [userLogin, setUserLogin] = useState('')
   const [userPass, setUserPass] = useState('')
+
+  const { isAuth, setIsAuth } = useContext(AuthContext)
 
   return (
     <div className='AuthForm'>
@@ -21,6 +24,9 @@ export default function AuthForm(props) {
         setUserPass={setUserPass}
         authTrue={props.authTrue}
       />
+      <button onClick={() => setIsAuth(!isAuth)}>TEST LOGIN</button>
     </div>
   )
 }
+
+export default AuthForm

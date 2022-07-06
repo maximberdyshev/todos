@@ -10,4 +10,5 @@
 .navbar__links {
   margin-left: auto;
   border: 1px solid peru;
+  padding: 5px 15px;
 }
