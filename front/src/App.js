@@ -1,12 +1,15 @@
+import './styles/App.css'
 import React from 'react'
 import MainForm from './components/MainForm'
-import './styles/App.css'
+import { BrowserRouter } from 'react-router-dom'
+import MyNavbar from './components/UI/navbar/MyNavbar'
 
 function App() {
   return (
-    <div className='App'>
-      <MainForm />
-    </div>
+      <BrowserRouter>
+        <MyNavbar />
+        <MainForm />
+      </BrowserRouter>
   )
 }
 

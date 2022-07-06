@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import AuthForm from './AuthWindow/AuthForm'
-import TodoContainer from './Todo/TodoContainer'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Error from '../pages/Error'
+import Login from '../pages/Login'
+import Todos from '../pages/Todos'
 
-export default function MainForm() {
+const MainForm = () => {
   // имитация состояния авторизации пользователя
   const [isAuth, setIsAuth] = useState(true)
 
@@ -10,5 +12,22 @@ export default function MainForm() {
     setIsAuth(!isAuth)
   }
 
-  return <div>{isAuth ? <TodoContainer /> : <AuthForm authTrue={authTrue} />}</div>
+  if (isAuth) {
+    return (
+      <Routes>
+        <Route path='/todo' element={<Todos />} />
+        <Route path='/error' element={<Error />} />
+        <Route path='*' element={<Navigate to='/error' />} />
+      </Routes>
+    )
+  } else {
+    return (
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<Navigate to='/error' />} />
+      </Routes>
+    )
+  }
 }
+
+export default MainForm
