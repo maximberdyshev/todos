@@ -14,6 +14,8 @@ function App() {
     userLogin: 'Smith',
     userPass: '123',
   })
+
+  // состояние для полей логина
   const [userData, setUserData] = useState({
     userLogin: '',
     userPass: '',

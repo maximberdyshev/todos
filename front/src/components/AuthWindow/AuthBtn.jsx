@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../context/MyContext'
 import MyButton from '../UI/button/MyButton'
 
-const AuthBtn = () => {
-  const { userData, userDataDB, isAuth, setIsAuth } = useContext(AuthContext)
+const AuthBtn = (props) => {
+  const { userData, userDataDB, isAuth, setIsAuth, setUserData } =
+    useContext(AuthContext)
 
   function getLogin(event) {
     event.preventDefault()
@@ -14,9 +15,12 @@ const AuthBtn = () => {
       userData.userPass === userDataDB.userPass
     ) {
       setIsAuth(!isAuth)
+      setUserData({ userLogin: '', userPass: '' })
     } else {
-      // должно появиться сообщении о неудачном логине, но не реализовано
-      console.log('not implemented')
+      // сообщение о неудачном логине
+      // не реализована вариативность (причина: неправильный пароль или логин)
+      props.setLogState('Неудачный логин...')
+      props.setModal(true)
     }
   }
 
@@ -24,7 +28,8 @@ const AuthBtn = () => {
     event.preventDefault()
 
     // должна быть реализована регистрация нового пользователя, но не реализовано
-    console.log('not implemented')
+    props.setLogState('Окно регистрации пользователя. Не реализовано.')
+    props.setModal(true)
   }
 
   return (
