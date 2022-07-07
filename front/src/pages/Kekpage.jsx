@@ -1,3 +1,5 @@
+// прост )))))00
+
 import React from 'react'
 
 const Kekpage = () => {
