@@ -15,6 +15,7 @@ const AuthBtn = (props) => {
       userData.userPass === userDataDB.userPass
     ) {
       setIsAuth(!isAuth)
+      localStorage.setItem('authorized', '1')
       setUserData({ userLogin: '', userPass: '' })
     } else {
       // сообщение о неудачном логине

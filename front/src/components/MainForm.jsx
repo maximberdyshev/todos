@@ -8,9 +8,11 @@ import Todos from '../pages/Todos'
 import Kekpage from '../pages/Kekpage'
 
 const MainForm = () => {
+  // работа с данным конектстом не нужна, если используется localstorage
   const { isAuth } = useContext(AuthContext)
 
-  if (isAuth) {
+  // if (isAuth) {
+  if (localStorage.getItem('authorized', '1')) {
     return (
       <div className='MainForm'>
         <MyNavbar />
