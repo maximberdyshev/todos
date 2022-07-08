@@ -21,11 +21,33 @@ function App() {
     userPass: '',
   })
 
+  // имитация БД с задачами
+  let [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: 'Заголовок задачи',
+      body: 'Описание задачи',
+      dateEnd: '2022-10-10',
+      dateCreate: '2022-01-01',
+      dateUpdate: '2022-05-05',
+      priority: 'средний',
+      completed: false,
+      initiator: 'Smith',
+      executor: 'Smith',
+    },
+  ])
+
   return (
     <AuthContext.Provider
-      value={{ isAuth, setIsAuth, userData, userDataDB, setUserData }}>
+      value={{
+        isAuth,
+        setIsAuth,
+        userData,
+        userDataDB,
+        setUserData,
+      }}>
       <BrowserRouter>
-        <MainForm />
+        <MainForm todos={todos} setTodos={setTodos}/>
       </BrowserRouter>
     </AuthContext.Provider>
   )

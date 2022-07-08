@@ -6,7 +6,7 @@ import Error from '../pages/Error'
 import Login from '../pages/Login'
 import Todos from '../pages/Todos'
 
-const MainForm = () => {
+const MainForm = ({ todos, setTodos }) => {
   // работа с данным конектстом не нужна, если используется localstorage
   const { isAuth } = useContext(AuthContext)
 
@@ -14,9 +14,9 @@ const MainForm = () => {
   if (localStorage.getItem('authorized', '1')) {
     return (
       <div className='MainForm'>
-        <MyNavbar />
+        <MyNavbar todos={todos} setTodos={setTodos} />
         <Routes>
-          <Route path='/todo' element={<Todos />} />
+          <Route path='/todo' element={<Todos todos={todos} setTodos={setTodos} />} />
           <Route path='/error' element={<Error />} />
           <Route path='*' element={<Navigate to='/todo' />} />
         </Routes>

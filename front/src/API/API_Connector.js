@@ -20,4 +20,18 @@ export default class API_Connector {
     )
     return response
   }
+
+  // создание задачи
+  static async postTodo(userId, id, title) {
+    const response = await axios.post(
+      'https://jsonplaceholder.typicode.com/todos',
+      {
+        userId: userId,
+        id: id,
+        title: title,
+        completed: false
+      }
+    )
+    return response
+  }
 }

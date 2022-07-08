@@ -53,6 +53,7 @@
 
 .todo-item {
   display: flex;
+  flex-direction: column;
 }
 
 .todo-btn {

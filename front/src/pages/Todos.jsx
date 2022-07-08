@@ -1,29 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import API_Connector from '../API/API_Connector'
+import React from 'react'
 import TodoList from '../components/Todo/TodoList'
 
-const Todos = () => {
-  let [todos, setTodo] = useState([
-    { id: 1, title: '1' },
-  ])
-
-  async function fetchTodos() {
-    const response = await API_Connector.getAllTodos(10, 1)
-    setTodo(response.data)
-  }
-
-  useEffect(() => {
-    fetchTodos()
-  }, [])
-
+const Todos = (props) => {
   return (
     <div className='Todos'>
-      {todos.length === 0 ? (
+      {props.todos.length === 0 ? (
         <h1 style={{ textAlign: 'center', marginTop: '150px' }}>
           Задачи не найдены
         </h1>
       ) : (
-        <TodoList todos={todos} setTodo={setTodo} />
+        <TodoList todos={props.todos} setTodos={props.setTodos} />
       )}
     </div>
   )
