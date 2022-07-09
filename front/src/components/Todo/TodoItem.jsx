@@ -5,12 +5,17 @@ export default function TodoItem(props) {
   return (
     <div className='TodoItem'>
       <div className='todo-item'>
-        <p>
-          {props.number}. {props.todo.title}
-        </p>
+        {props.todo.completed ? (
+          <p style={{textDecoration: 'line-through', color: 'green'}}>
+            {props.number}. {props.todo.title}
+          </p>
+        ) : (
+          <p style={{color: 'grey'}}>
+            {props.number}. {props.todo.title}
+          </p>
+        )}
         <p>{props.todo.body}</p>
         <p>Ответственный: {props.todo.executor} </p>
-        
       </div>
       <div className='todo-item'>
         <p>Приоритет: {props.todo.priority} </p>
@@ -26,7 +31,7 @@ export default function TodoItem(props) {
           Просмотреть
         </MyButton>
         <MyButton onClick={() => props.completeTodo(props.todo)}>
-          Выполнить
+          {props.todo.completed ? <p>Отменить</p> : <p>Выполнить</p>}
         </MyButton>
         <MyButton onClick={() => props.removeTodo(props.todo)}>
           Удалить

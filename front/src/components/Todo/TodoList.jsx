@@ -1,9 +1,9 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 
-export default function TodoList(props) {
+export default function TodoList({ todos, setTodos }) {
   function removeTodo(todo) {
-    props.setTodos(props.todos.filter((t) => t.id !== todo.id))
+    setTodos(todos.filter((t) => t.id !== todo.id))
   }
 
   function seeTodo(e) {
@@ -11,12 +11,18 @@ export default function TodoList(props) {
   }
 
   function completeTodo(e) {
-    // e.preventDefault()
+    let updateTodos = todos.map(todo => {
+      if (todo.id === e.id) {
+        return {...todo, completed: !todo.completed}
+      }
+      return todo
+    })
+    setTodos(updateTodos)
   }
 
   return (
     <div className='TodoList'>
-      {props.todos.map((todo, index) => (
+      {todos.map((todo, index) => (
         <TodoItem
           todo={todo}
           key={todo.id}

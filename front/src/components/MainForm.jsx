@@ -16,7 +16,10 @@ const MainForm = ({ todos, setTodos }) => {
       <div className='MainForm'>
         <MyNavbar todos={todos} setTodos={setTodos} />
         <Routes>
-          <Route path='/todo' element={<Todos todos={todos} setTodos={setTodos} />} />
+          <Route
+            path='/todo'
+            element={<Todos todos={todos} setTodos={setTodos} />}
+          />
           <Route path='/error' element={<Error />} />
           <Route path='*' element={<Navigate to='/todo' />} />
         </Routes>
