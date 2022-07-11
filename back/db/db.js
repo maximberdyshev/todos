@@ -1,7 +1,20 @@
-import knexfile from './knexfile.js'
+import knex from 'knex'
 
-const knex = knexfile.development
+const database = knex({
+  client: 'pg',
+  connection: {
+    host: '127.0.0.1',
+    user: 'mnb',
+    password: 'thisis',
+    database: 'td',
+  },
+})
 
-let param = knex('posts').select('*')
+const testIns = async () => {
+    const ins = await database('tt').insert({ test_column: 'TEST'})
+    // console.log(ins)
+}
 
-console.log(param)
+testIns()
+
+// database.migrate.latest()
