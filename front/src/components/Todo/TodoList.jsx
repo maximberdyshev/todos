@@ -7,7 +7,13 @@ export default function TodoList({ todos, setTodos }) {
   }
 
   function seeTodo(e) {
-    // e.preventDefault()
+    let updateTodos = todos.map(todo => {
+      if (todo.id === e.id) {
+        return {...e}
+      }
+      return todo
+    })
+    setTodos(updateTodos)
   }
 
   function completeTodo(e) {

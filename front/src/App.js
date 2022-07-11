@@ -10,7 +10,7 @@ function App() {
 
   // имитация БД с логином и паролем
   // not used
-  const [userDataDB, setUserDataBD] = useState({
+  const [userDataDB] = useState({
     userLogin: 'Smith',
     userPass: '123',
   })
@@ -26,7 +26,7 @@ function App() {
     {
       id: 1,
       title: 'Заголовок задачи 1',
-      body: 'Описание задачи 2',
+      body: 'Описание задачи 1',
       dateEnd: '2022-10-10',
       dateCreate: '2022-01-01',
       dateUpdate: '2022-05-05',

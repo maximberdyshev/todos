@@ -1,16 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { AuthContext } from '../context/MyContext'
 import MyNavbar from './Navbar/MyNavbar'
 import Error from '../pages/Error'
 import Login from '../pages/Login'
 import Todos from '../pages/Todos'
 
 const MainForm = ({ todos, setTodos }) => {
-  // работа с данным конектстом не нужна, если используется localstorage
-  const { isAuth } = useContext(AuthContext)
-
-  // if (isAuth) {
   if (localStorage.getItem('authorized', '1')) {
     return (
       <div className='MainForm'>
