@@ -27,7 +27,7 @@ export default function TodoList({ todos, setTodos }) {
   }
 
   return (
-    <div className='TodoList'>
+    <div>
       {todos.map((todo, index) => (
         <TodoItem
           todo={todo}

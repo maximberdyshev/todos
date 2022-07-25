@@ -1,0 +1,24 @@
+.TodoItems {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.todoBtn {
+  display: flex;
+}
+
+.TodoInput {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+}

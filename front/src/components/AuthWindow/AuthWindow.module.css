@@ -1,0 +1,17 @@
+.authInput {
+  display: flex;
+  margin-top: 150px;
+  padding: 15px;
+  border: 2px solid peru;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authBtn {
+  display: flex;
+  margin-top: 5px;
+  padding: 10px;
+  border: 2px solid peru;
+  align-items: center;
+  justify-content: space-between;
+}

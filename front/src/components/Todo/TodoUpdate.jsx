@@ -2,24 +2,24 @@ import React, { useState } from 'react'
 import MyButton from '../UI/button/MyButton'
 import MyInput from '../UI/input/MyInput'
 
-const TodoUpdate = (props) => {
+const TodoUpdate = ({todo, seeTodo, setVisible}) => {
   const [updTodo, setUpdTodo] = useState({
-    id: props.todo.id,
-    title: props.todo.title,
-    body: props.todo.body,
-    dateEnd: props.todo.dateEnd,
-    dateCreate: props.todo.dateCreate,
-    dateUpdate: props.todo.dateUpdate,
-    priority: props.todo.priority,
-    completed: props.todo.completed,
-    initiator: props.todo.initiator,
-    executor: props.todo.executor,
+    id: todo.id,
+    title: todo.title,
+    body: todo.body,
+    dateEnd: todo.dateEnd,
+    dateCreate: todo.dateCreate,
+    dateUpdate: todo.dateUpdate,
+    priority: todo.priority,
+    completed: todo.completed,
+    initiator: todo.initiator,
+    executor: todo.executor,
   })
 
   const todoHasUpdate = (event) => {
     event.preventDefault()
-    props.seeTodo(updTodo)
-    props.setVisible(false)
+    seeTodo(updTodo)
+    setVisible(false)
   }
 
   return (

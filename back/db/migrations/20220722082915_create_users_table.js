@@ -5,9 +5,13 @@
 const up = function (knex) {
   return knex.schema.createTable('users', function (table) {
     table.increments('id'),
-    table.integer('user_id')
+    table.integer('user_id').notNullable()
     table.string('login').notNullable()
-    table.string('email')
+    table.string('pass')
+    table.string('first_name')
+    table.string('second_name')
+    table.string('last_name')
+    table.integer('supervisor_id')
     table.timestamps
   })
 }
