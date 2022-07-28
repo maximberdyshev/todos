@@ -8,6 +8,6 @@ router.get('/', UserController.getThis)
 
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
-router.get('/check', UserController.check)
+router.post('/check', UserController.check)
 
 export default router

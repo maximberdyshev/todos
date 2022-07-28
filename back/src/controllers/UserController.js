@@ -52,11 +52,10 @@ export default class UserController {
         user_status: 'user_status',
       })
       .where({
-        login: req.body,
+        login: req.body.login,
       })
-      .then((status) => {
-        console.log(req.body)
-        return res.json(status)
+      .then((state) => {
+        return res.json(state)
       })
       .catch((err) => {
         console.log(err)

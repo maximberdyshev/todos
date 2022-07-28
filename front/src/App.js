@@ -5,29 +5,18 @@ import { AuthContext } from './context/MyContext'
 import Login from './pages/Login'
 import Todos from './pages/Todos'
 import Error from './pages/Error'
-import API_Connector from './API/API_Connector'
+import AuthCheck from './validators/AuthCheck'
 
 function App() {
   // состояние авторизации пользователя
   const [isAuth, setIsAuth] = useState(false)
-  // const checked = API_Connector.checkLogin()
-  // console.log(checked)
 
-  // useEffect(() => {
-  //   setIsAuth(API_Connector.checkLogin())
-  //   console.log(API_Connector.checkLogin())
-  //   console.log(isAuth)
-  // }, [])
-
-  const getLog = async () => {
-    const name = 'Smith' 
-    const checked = await API_Connector.checkLogin(name)
-    // console.log(checked)
-  }
+  useEffect(() => {
+    AuthCheck.getLogin(localStorage.getItem('userName'))
+  }, [])
 
   return (
     <div>
-    <button onClick={getLog}> log </button>
       <AuthContext.Provider value={{ isAuth, setIsAuth }}>
         {localStorage.getItem('authorized', '1') ? (
           <div className='App'>
