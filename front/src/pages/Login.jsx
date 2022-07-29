@@ -11,13 +11,6 @@ const Login = () => {
     userPass: '',
   })
 
-  // имитация БД с логином и паролем
-  // вероятно надо вынести в отдельный контекст?
-  const [userDataDB] = useState({
-    userLogin: 'Smith',
-    userPass: '123',
-  })
-
   return (
     <div className='login'>
       <MyModal visible={modal} setVisible={setModal}>
@@ -26,7 +19,6 @@ const Login = () => {
       <AuthInput userData={userData} setUserData={setUserData} />
       <AuthBtn
         userData={userData}
-        userDataDB={userDataDB}
         setUserData={setUserData}
         setLogState={setLogState}
         setModal={setModal}

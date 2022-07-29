@@ -4,12 +4,14 @@ import MyButton from '../UI/button/MyButton'
 import styles from './MyNavbar.module.css'
 import MyModal from '../UI/modal/MyModal'
 import TodoCreate from '../Todo/TodoCreate'
+import API_Connector from '../../API/API_Connector'
 
 const MyNavbar = ({ todos, setTodos }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext)
   const [modal, setModal] = useState(false)
 
   function logOut() {
+    API_Connector.logIn(localStorage.getItem('userName'), null, 0)
     setIsAuth(!isAuth)
     localStorage.removeItem('authorized')
     localStorage.removeItem('userName')

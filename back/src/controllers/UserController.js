@@ -36,13 +36,38 @@ export default class UserController {
 
   static login = (req, res) => {
     // вход пользователя в систему
-    knx('users')
-      .select()
-      .then()
+    if (req.body.decision == 1) {
+      knx('users')
+      .update({
+        user_status: true,
+      })
+      .where({
+        login: req.body.login,
+        pass: req.body.password,
+      })
+      .then((state) => {
+        return res.json(state)
+      })
       .catch((err) => {
         console.log(err)
         return res.json({ status: 501, message: 'Not implemented' })
       })
+    } else {
+      knx('users')
+      .update({
+        user_status: false,
+      })
+      .where({
+        login: req.body.login,
+      })
+      .then((state) => {
+        return res.json(state)
+      })
+      .catch((err) => {
+        console.log(err)
+        return res.json({ status: 501, message: 'Not implemented' })
+      })
+    }
   }
 
   static check = (req, res) => {

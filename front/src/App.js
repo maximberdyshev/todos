@@ -1,19 +1,20 @@
 import './styles/App.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+// import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthContext } from './context/MyContext'
 import Login from './pages/Login'
 import Todos from './pages/Todos'
 import Error from './pages/Error'
-import AuthCheck from './validators/AuthCheck'
+// import AuthCheck from './validators/AuthCheck'
 
 function App() {
   // состояние авторизации пользователя
   const [isAuth, setIsAuth] = useState(false)
 
-  useEffect(() => {
-    AuthCheck.getLogin(localStorage.getItem('userName'))
-  }, [])
+  // useEffect(() => {
+  //   AuthCheck.checkLogin(localStorage.getItem('userName'))
+  // }, [])
 
   return (
     <div>

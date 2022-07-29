@@ -22,9 +22,9 @@ const seed = async function (knex) {
         {
           id: 2,
           user_id: 2,
-          login: 'Jhon',
+          login: 'John',
           pass: '111',
-          first_name: 'Jhon',
+          first_name: 'John',
           second_name: 'X',
           last_name: 'Lametron',
           supervisor_id: 3,

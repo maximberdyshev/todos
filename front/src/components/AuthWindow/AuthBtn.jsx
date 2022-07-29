@@ -4,13 +4,12 @@ import AuthCheck from '../../validators/AuthCheck'
 import MyButton from '../UI/button/MyButton'
 import styles from './AuthWindow.module.css'
 
-const AuthBtn = ({ userData, userDataDB, setUserData, setModal, setLogState }) => {
+const AuthBtn = ({ userData, setUserData, setModal, setLogState }) => {
   const { isAuth, setIsAuth } = useContext(AuthContext)
 
-  function getLogin(event) {
+  async function getLogin(event) {
     event.preventDefault()
-
-    if (AuthCheck.logInCheck(userData, userDataDB))
+    if (await AuthCheck.userLogIn(userData, 1))
     {
       setUserData({ userLogin: '', userPass: '' })
       setIsAuth(!isAuth)
