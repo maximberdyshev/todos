@@ -9,11 +9,18 @@ export default class API_Connector {
   }
 
   static async logIn(login, password, decision) {
-    // console.log(login)
     const response = await axios.post('http://localhost:3001/api/users/login', {
       login,
       password,
       decision,
+    })
+    return response
+  }
+
+  static async regIn(login, password) {
+    const response = await axios.post('http://localhost:3001/api/users/register', {
+      login,
+      password,
     })
     return response
   }

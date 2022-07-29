@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import API_Connector from '../../API/API_Connector'
 import { AuthContext } from '../../context/MyContext'
 import AuthCheck from '../../validators/AuthCheck'
 import MyButton from '../UI/button/MyButton'
@@ -21,10 +22,10 @@ const AuthBtn = ({ userData, setUserData, setModal, setLogState }) => {
 
   function regIn(event) {
     event.preventDefault()
-
+    API_Connector.regIn(userData.userLogin, userData.userPass)
     // должна быть реализована регистрация нового пользователя, но не реализовано
-    setLogState('Окно регистрации пользователя. Не реализовано.')
-    setModal(true)
+    // setLogState('Окно регистрации пользователя. Не реализовано.')
+    // setModal(true)
   }
 
   return (

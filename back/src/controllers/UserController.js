@@ -26,8 +26,20 @@ export default class UserController {
   static register = (req, res) => {
     // регистрация нового пользователя
     knx('users')
-      .select()
-      .then()
+      .insert({
+        id: Date.now(),
+        user_id: Date.now() + 1,
+        login: req.body.login,
+        pass: req.body.password,
+        first_name: req.body.login,
+        second_name: '',
+        last_name: '',
+        supervisor_id: 3,
+        user_status: false,
+      })
+      .then((users) => {
+        return res.json(users)
+      })
       .catch((err) => {
         console.log(err)
         return res.json({ status: 501, message: 'Not implemented' })
@@ -38,35 +50,35 @@ export default class UserController {
     // вход пользователя в систему
     if (req.body.decision == 1) {
       knx('users')
-      .update({
-        user_status: true,
-      })
-      .where({
-        login: req.body.login,
-        pass: req.body.password,
-      })
-      .then((state) => {
-        return res.json(state)
-      })
-      .catch((err) => {
-        console.log(err)
-        return res.json({ status: 501, message: 'Not implemented' })
-      })
+        .update({
+          user_status: true,
+        })
+        .where({
+          login: req.body.login,
+          pass: req.body.password,
+        })
+        .then((state) => {
+          return res.json(state)
+        })
+        .catch((err) => {
+          console.log(err)
+          return res.json({ status: 501, message: 'Not implemented' })
+        })
     } else {
       knx('users')
-      .update({
-        user_status: false,
-      })
-      .where({
-        login: req.body.login,
-      })
-      .then((state) => {
-        return res.json(state)
-      })
-      .catch((err) => {
-        console.log(err)
-        return res.json({ status: 501, message: 'Not implemented' })
-      })
+        .update({
+          user_status: false,
+        })
+        .where({
+          login: req.body.login,
+        })
+        .then((state) => {
+          return res.json(state)
+        })
+        .catch((err) => {
+          console.log(err)
+          return res.json({ status: 501, message: 'Not implemented' })
+        })
     }
   }
 
